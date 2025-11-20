@@ -11,5 +11,6 @@ class SessionController {
         val session = Session(getId(), location, ownKit, cost, day)
         DataStore.sessions.add(session)
     }
+
     fun listSessions() = DataStore.sessions
 }
