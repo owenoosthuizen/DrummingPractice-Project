@@ -18,7 +18,7 @@ fun readUserDouble(UserD: String): Double{
         val input = readlnOrNull()
         try{
             return input!!.toDouble()
-        }catch (e: Exception){
+        }catch (e: NumberFormatException){
             println("Please enter a valid decimal number.")
         }
     }
