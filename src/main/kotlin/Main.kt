@@ -1,6 +1,11 @@
+import Controllers.SessionController
+import Models.Session
 import Utils.*
 
 fun main() {
+
+    val sessionController = SessionController()
+
 
     var choice: Int
 
@@ -23,6 +28,15 @@ fun main() {
         """.trimMargin())
 
         when (choice) {
+            1 -> {
+                val loc = readUserString("Location: ")
+                val ownKit = readUserBoolean("Own kit (true/false): ")
+                val cost = readUserDouble("Cost: ")
+                val day = readUserString("Day of week: ")
+
+                sessionController.addSession(loc, ownKit, cost, day)
+                println("Session added.")
+            }
 
             else -> println("Invalid choice. Try again.")
         }
