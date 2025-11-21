@@ -1,6 +1,5 @@
 import Controllers.ExerciseController
 import Controllers.SessionController
-import Models.Session
 import Utils.*
 
 fun main() {
