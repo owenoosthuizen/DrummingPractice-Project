@@ -52,12 +52,12 @@ fun main() {
 
             3 -> {
                 println("Your sessions: ")
-                println(sessionController.listSessions().forEach { println(it) })
+                sessionController.listSessions().forEach { println(it) }
             }
 
             4 -> {
                 println("Your Exercises: ")
-                println(exerciseController.listExercise().forEach { println(it) })
+                exerciseController.listExercise().forEach { println(it) }
             }
 
             0 -> println("Exiting...")
