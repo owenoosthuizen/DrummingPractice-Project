@@ -10,6 +10,4 @@ class SessionExerciseController {
     }
 
     fun listAll() = DataStore.sessionExercises
-
-
 }

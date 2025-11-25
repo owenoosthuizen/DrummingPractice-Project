@@ -11,7 +11,7 @@ class ExerciseController {
 
     fun addExercise(drum: String, length: Int, difficulty: String, desc: String){
         val exercise = Exercise(getId(), drum, length, difficulty, desc)
-        DataStore.exercises.add(exercise)
+        exercises.add(exercise)
     }
     fun listExercise() = exercises
 }

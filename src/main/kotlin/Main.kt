@@ -11,7 +11,6 @@ fun main() {
 
 
     var choice: Int
-
     do {
         choice = readUserInt("""
             |
