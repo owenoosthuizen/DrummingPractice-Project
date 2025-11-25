@@ -1,11 +1,13 @@
 import Controllers.ExerciseController
 import Controllers.SessionController
+import Controllers.SessionExerciseController
 import Utils.*
 
 fun main() {
 
     val sessionController = SessionController()
     val exerciseController = ExerciseController()
+    val sessionExerciseController = SessionExerciseController()
 
 
     var choice: Int
@@ -16,7 +18,7 @@ fun main() {
             |==================================
             |        WEEKLY DRUM PRACTICE
             |==================================
-            | 1. Add Session
+            | 1. Add Session  
             | 2. Add Exercise
             | 3. View Sessions
             | 4. View Exercises
@@ -57,6 +59,19 @@ fun main() {
             4 -> {
                 println("Your Exercises: ")
                 exerciseController.listExercise().forEach { println(it) }
+            }
+
+            5 -> {
+                val sid = readUserInt("Session ID: ")
+                val eid = readUserInt("Exercise ID: ")
+
+                sessionExerciseController.linkExerciseToSession(sid, eid)
+                println("Linked.")
+            }
+
+            6 -> {
+                println("Session Exercises:")
+                sessionExerciseController.listAll().forEach { println(it) }
             }
 
             0 -> println("Exiting...")
