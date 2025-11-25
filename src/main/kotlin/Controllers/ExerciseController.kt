@@ -4,6 +4,8 @@ import Models.Exercise
 import persistence.DataStore
 
 class ExerciseController {
+
+    private val exercises = mutableListOf<Exercise>()
     private var lastId = 3
     private fun getId() = ++lastId
 
@@ -11,5 +13,5 @@ class ExerciseController {
         val exercise = Exercise(getId(), drum, length, difficulty, desc)
         DataStore.exercises.add(exercise)
     }
-    fun listExercise() = DataStore.exercises
+    fun listExercise() = exercises
 }

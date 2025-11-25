@@ -4,6 +4,8 @@ import Models.Session
 import persistence.DataStore
 
 class SessionController {
+
+    private val sessions = mutableListOf<Session>()
     private var lastId = 3
     private fun getId() = ++lastId
 
@@ -12,5 +14,5 @@ class SessionController {
         DataStore.sessions.add(session)
     }
 
-    fun listSessions() = DataStore.sessions
+    fun listSessions() = sessions
 }
