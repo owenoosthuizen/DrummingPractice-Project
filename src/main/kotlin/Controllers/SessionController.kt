@@ -6,7 +6,7 @@ import persistence.DataStore
 class SessionController {
 
     private val sessions = mutableListOf<Session>()
-    private var lastId = 3
+    private var lastId = 0
     private fun getId() = ++lastId
 
     fun addSession(location: String, ownKit: Boolean, cost: Double, day: String) {
