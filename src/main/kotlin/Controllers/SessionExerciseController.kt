@@ -1,15 +1,16 @@
 package Controllers
 
 import Models.SessionExercise
-import persistence.DataStore
 
 class SessionExerciseController {
 
+    // this stores the links in memory (no DataStore)
+    private val sessionExercises = mutableListOf<SessionExercise>()
+
     fun linkExerciseToSession(sessionId: Int, exerciseId: Int) {
-        DataStore.sessionExercises.add(SessionExercise(sessionId, exerciseId, false, 0))
+        val link = SessionExercise(sessionId, exerciseId, false, 0)
+        sessionExercises.add(link)
     }
 
-    fun listAll() = DataStore.sessionExercises
-
-
+    fun listAll() = sessionExercises
 }

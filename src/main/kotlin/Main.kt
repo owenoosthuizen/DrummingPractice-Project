@@ -11,7 +11,6 @@ fun main() {
 
 
     var choice: Int
-
     do {
         choice = readUserInt("""
             |
@@ -23,8 +22,8 @@ fun main() {
             | 3. View Sessions
             | 4. View Exercises
             | 5. Link Exercise to Session
-            | 6. Mark Exercise Completed
-            | 7. View All Session Exercises
+            | 6. View All Session Exercises
+            | 7. Mark Exercise Completed
             | 0. Exit
             |----------------------------------
             | > 
@@ -42,7 +41,7 @@ fun main() {
             }
 
             2 ->{
-                val drum = readUserString("Drum: ")
+                val drum = readUserString("Drum Part: ")
                 val desc = readUserString("Description of exercise: ")
                 val len = readUserInt("Length in minutes: ")
                 val diff = readUserString("How Difficult was it ? (Easy, Medium, Hard): ")
