@@ -1,9 +1,9 @@
 package Models
 
 data class Session(
-    val sessionId: Int,
-    val location: String,
-    val ownKit: Boolean,
-    val cost: Double,
-    val dayOfWeek: String,
+    var sessionId: Int,
+    var location: String,
+    var ownKit: Boolean,
+    var cost: Double,
+    var dayOfWeek: String,
 )
