@@ -9,7 +9,7 @@ class ExerciseController {
     private var lastId = 0
     private fun getId() = ++lastId
 
-    fun addExercise(drum: String, length: Int, difficulty: String, desc: String){
+    fun addExercise(drum:  String , length:  Int , difficulty:  String , desc:  String ){
         val exercise = Exercise(getId(), drum, length, difficulty, desc)
         exercises.add(exercise)
     }

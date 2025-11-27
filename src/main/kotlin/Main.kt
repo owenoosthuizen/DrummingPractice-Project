@@ -24,6 +24,7 @@ fun main() {
             | 5. Link Exercise to Session
             | 6. View All Session Exercises
             | 7. Mark Exercise Completed
+            | 8. View all completed exercises
             | 0. Exit
             |----------------------------------
             | > 
@@ -71,6 +72,26 @@ fun main() {
             6 -> {
                 println("Session Exercises:")
                 sessionExerciseController.listAll().forEach { println(it) }
+            }
+
+            7-> {
+                val sid = readUserInt("Session ID")
+                val eid = readUserInt("Exercise ID: ")
+                val rating = readUserInt("Rating (1-5): ")
+
+                sessionExerciseController.markCompleted(sid, eid, rating)
+                println("Mark completed")
+            }
+
+            8-> {
+                val completed = sessionExerciseController.listCompleted()
+
+                if (completed.isEmpty()) {
+                    println("No completed exercises found.")
+                } else {
+                    println("Completed Exercises:")
+                    completed.forEach { println(it) }
+                }
             }
 
             0 -> println("Exiting...")
