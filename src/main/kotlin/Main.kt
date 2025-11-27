@@ -1,13 +1,21 @@
 import controllers.ExerciseController
 import controllers.SessionController
 import controllers.SessionExerciseController
-import utils.*
+import utils.readUserInt
+import utils.readUserString
+import utils.readUserDouble
+import utils.readUserBoolean
+import persistence.XMLSerializer
 
 fun main() {
 
-    val sessionController = SessionController()
-    val exerciseController = ExerciseController()
-    val sessionExerciseController = SessionExerciseController()
+    val sessionController = SessionController(XMLSerializer("sessions.xml"))
+    val exerciseController = ExerciseController(XMLSerializer("exercises.xml"))
+    val sessionExerciseController = SessionExerciseController(XMLSerializer("sessionexercises.xml"))
+
+    exerciseController.load()
+    sessionController.load()
+    sessionExerciseController.load()
 
 
     var choice: Int
@@ -39,6 +47,7 @@ fun main() {
 
                 sessionController.addSession(loc, ownKit, cost, day)
                 println("Session Added.")
+                sessionController.save()
             }
 
             2 ->{
@@ -49,6 +58,7 @@ fun main() {
 
                 exerciseController.addExercise(drum,len, diff, desc)
                 println("Exercise Added.")
+                exerciseController.save()
             }
 
             3 -> {
@@ -67,6 +77,7 @@ fun main() {
 
                 sessionExerciseController.linkExerciseToSession(sid, eid)
                 println("Linked.")
+                sessionExerciseController.save()
             }
 
             6 -> {
@@ -81,6 +92,7 @@ fun main() {
 
                 sessionExerciseController.markCompleted(sid, eid, rating)
                 println("Mark completed")
+                sessionExerciseController.save()
             }
 
             8-> {
@@ -94,8 +106,11 @@ fun main() {
                 }
             }
 
-            0 -> println("Exiting...")
-            else -> println("Invalid choice. Try again.")
+            0 -> {
+                sessionController.save()
+                exerciseController.save()
+                sessionExerciseController.save()
+            }
         }
 
     } while (choice != 0)

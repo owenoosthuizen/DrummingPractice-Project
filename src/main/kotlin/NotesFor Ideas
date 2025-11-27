@@ -3,5 +3,5 @@ give the user more options by choosing what day of the week they want to view ex
 
 LAMBAS- get avergae time spent on each exercise
 
-A centralized persistence layer????
+A centralized persistence layer????(not anymore)
 Controller → DataStore → XML / JSON / File

@@ -1,10 +1,11 @@
 package controllers
 
 import models.SessionExercise
+import persistence.Serializer
 
-class SessionExerciseController {
+class SessionExerciseController(private val serializer: Serializer) {
 
-    private val sessionExercises = mutableListOf<SessionExercise>()
+    private var sessionExercises = mutableListOf<SessionExercise>()
 
     fun linkExerciseToSession(sessionId: Int, exerciseId: Int) {
         val link = SessionExercise(sessionId, exerciseId, false, 0)
@@ -25,4 +26,14 @@ class SessionExerciseController {
     }
 
     fun listAll() = sessionExercises
+
+    fun save() = serializer.write(sessionExercises)
+
+    fun load() {
+        val loaded = serializer.read()
+        if (loaded is MutableList<*>) {
+            @Suppress("UNCHECKED_CAST")
+            sessionExercises = loaded as MutableList<SessionExercise>
+        }
+    }
 }
