@@ -1,6 +1,6 @@
-package Controllers
+package controllers
 
-import Models.Session
+import models.Session
 
 class SessionController {
 

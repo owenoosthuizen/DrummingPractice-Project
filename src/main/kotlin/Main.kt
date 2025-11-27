@@ -1,7 +1,7 @@
-import Controllers.ExerciseController
-import Controllers.SessionController
-import Controllers.SessionExerciseController
-import Utils.*
+import controllers.ExerciseController
+import controllers.SessionController
+import controllers.SessionExerciseController
+import utils.*
 
 fun main() {
 

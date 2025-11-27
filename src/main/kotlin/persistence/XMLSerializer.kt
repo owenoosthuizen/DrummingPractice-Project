@@ -25,7 +25,7 @@ class XMLSerializer(private val file: String): Serializer {
             val obj = xstream.fromXML(reader)
             reader.close()
             obj
-        } catch (_: Exception) {
+        } catch (_: Exception){
             null
         }
     }

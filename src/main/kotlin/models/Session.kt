@@ -1,4 +1,4 @@
-package Models
+package models
 
 data class Session(
     var sessionId: Int,
