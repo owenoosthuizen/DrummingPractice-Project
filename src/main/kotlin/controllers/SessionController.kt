@@ -1,17 +1,28 @@
 package controllers
 
 import models.Session
+import persistence.Serializer
 
-class SessionController {
+class SessionController(private val serializer: Serializer) {
 
-    private val sessions = mutableListOf<Session>()
+    private var sessions = mutableListOf<Session>()
     private var lastId = 0
     private fun getId() = ++lastId
 
     fun addSession(location: String, ownKit: Boolean, cost: Double, day: String) {
-        val session = Session(getId(), location, ownKit, cost, day)
-        sessions.add(session)
+        sessions.add(Session(getId(), location, ownKit, cost, day))
     }
 
     fun listSessions() = sessions
+
+    fun save() = serializer.write(sessions)
+
+    fun load() {
+        val loaded = serializer.read()
+        if (loaded is MutableList<*>) {
+            @Suppress("UNCHECKED_CAST")
+            sessions = loaded as MutableList<Session>
+            lastId = sessions.size
+        }
+    }
 }
