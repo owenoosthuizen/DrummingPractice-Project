@@ -10,7 +10,7 @@ class JSONSerializer(private val file: String) : Serializer {
     private val xstream = XStream(JettisonMappedXmlDriver())
 
     init {
-        xstream.allowTypesByWildcard(arrayOf("Models.*", "Controllers.*"))
+        xstream.allowTypesByWildcard(arrayOf("models.*", "controllers.*"))
     }
 
     override fun write(obj: Any?) {
