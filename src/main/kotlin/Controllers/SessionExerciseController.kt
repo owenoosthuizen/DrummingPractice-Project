@@ -4,7 +4,6 @@ import Models.SessionExercise
 
 class SessionExerciseController {
 
-    // this stores the links in memory (no DataStore)
     private val sessionExercises = mutableListOf<SessionExercise>()
 
     fun linkExerciseToSession(sessionId: Int, exerciseId: Int) {
