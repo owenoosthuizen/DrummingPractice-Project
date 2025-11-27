@@ -19,6 +19,16 @@ dependencies {
     implementation("org.codehaus.jettison:jettison:1.5.4")
 }
 
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
