@@ -1,7 +1,6 @@
 package Controllers
 
 import Models.Exercise
-import persistence.DataStore
 
 class ExerciseController {
 

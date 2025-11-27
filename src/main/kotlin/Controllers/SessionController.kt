@@ -1,7 +1,6 @@
 package Controllers
 
 import Models.Session
-import persistence.DataStore
 
 class SessionController {
 
