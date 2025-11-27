@@ -10,7 +10,6 @@ class XMLSerializer(private val file: String): Serializer {
     private val xstream = XStream(StaxDriver())
 
     init {
-        XStream.setupDefaultSecurity(xstream)
         xstream.allowTypesByWildcard(arrayOf("Models.*", "Controllers.*"))
     }
 
