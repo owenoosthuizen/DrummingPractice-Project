@@ -10,7 +10,7 @@ class XMLSerializer(private val file: String): Serializer {
     private val xstream = XStream(StaxDriver())
 
     init {
-        xstream.allowTypesByWildcard(arrayOf("Models.*", "Controllers.*"))
+        xstream.allowTypesByWildcard(arrayOf("models.*", "montrollers.*"))
     }
 
     override fun write(obj: Any?) {
