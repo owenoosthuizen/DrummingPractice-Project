@@ -1,6 +1,6 @@
-package Controllers
+package controllers
 
-import Models.Exercise
+import models.Exercise
 
 class ExerciseController {
 

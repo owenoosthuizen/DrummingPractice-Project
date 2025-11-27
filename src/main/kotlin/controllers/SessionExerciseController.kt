@@ -1,6 +1,6 @@
-package Controllers
+package controllers
 
-import Models.SessionExercise
+import models.SessionExercise
 
 class SessionExerciseController {
 
