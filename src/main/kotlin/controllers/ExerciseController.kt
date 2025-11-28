@@ -13,6 +13,13 @@ class ExerciseController(private val serializer: Serializer) {
         exercises.add(Exercise(getId(), drum, length, difficulty, desc))
     }
 
+    fun deleteExercise(id: Int): Boolean {
+        val removed = exercises.removeIf { it.exerciseId == id }
+        if (removed) save()
+        return removed
+    }
+
+
     fun listExercise() = exercises
 
     fun save() = serializer.write(exercises)

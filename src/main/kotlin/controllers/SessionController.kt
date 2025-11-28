@@ -13,6 +13,12 @@ class SessionController(private val serializer: Serializer) {
         sessions.add(Session(getId(), location, ownKit, cost, day))
     }
 
+    fun deleteSession(id: Int): Boolean {
+        val removed = sessions.removeIf { it.sessionId == id }
+        if (removed) save()
+        return removed
+    }
+
     fun listSessions() = sessions
 
     fun save() = serializer.write(sessions)
