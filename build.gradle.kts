@@ -25,6 +25,7 @@ application {
     mainClass.set("MainKt")
 }
 
+//ai was used for this since i got an error when running main
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "17"
 }
