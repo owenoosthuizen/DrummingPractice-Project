@@ -33,6 +33,9 @@ fun main() {
             | 6. View All Session Exercises
             | 7. Mark Exercise Completed
             | 8. View all completed exercises
+            | 9. Delete Session
+            | 10. Delete Exercise
+            | 11. Delete Session Exercise link
             | 0. Exit
             |----------------------------------
             | > 
@@ -104,6 +107,31 @@ fun main() {
                     println("Completed Exercises:")
                     completed.forEach { println(it) }
                 }
+            }
+
+            9-> {
+                val id = readUserInt("Session ID to delete: ")
+                if (sessionController.deleteSession(id))
+                    println("Session deleted.")
+                else
+                    println("Session not found.")
+            }
+
+            10-> {
+                val id = readUserInt("Exercise ID to delete")
+                if (exerciseController.deleteExercise(id))
+                    println("Execise deleted.")
+                else
+                    println("Exercise not found.")
+            }
+
+            11-> {
+                val sid = readUserInt("Session ID: ")
+                val eid = readUserInt("Exercise ID: ")
+                if (sessionExerciseController.deleteLink(sid, eid))
+                    println("Link deleted.")
+                else
+                    println("Link not found.")
             }
 
             0 -> {

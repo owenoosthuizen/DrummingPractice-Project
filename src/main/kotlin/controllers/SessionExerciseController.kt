@@ -25,6 +25,15 @@ class SessionExerciseController(private val serializer: Serializer) {
         return sessionExercises.filter { it.isCompleted }
     }
 
+    fun deleteLink(sessionId: Int, exerciseId: Int): Boolean {
+        val removed = sessionExercises.removeIf {
+            it.sessionId == sessionId && it.exerciseId == exerciseId
+        }
+        if (removed) save()
+        return removed
+    }
+
+
     fun listAll() = sessionExercises
 
     fun save() = serializer.write(sessionExercises)
